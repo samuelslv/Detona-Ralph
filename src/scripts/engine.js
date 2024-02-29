@@ -18,7 +18,7 @@ const state = {
     }
 };
 
-function playSound(audioName){
+function playSound(audioName) {
     let audio = new Audio(`./src/audios/${audioName}.m4a`);
     audio.volume = 0.1;
     audio.play();
@@ -27,15 +27,14 @@ function playSound(audioName){
 function coutDown() {
     console.log(state.values.currentTime)
     state.view.timeLeft.textContent = state.values.currentTime;
-    
-    if (state.values.currentTime <= 0) {
 
-        alert("Game over! O seu resultado foi " + state.values.result);
+    if (state.values.currentTime <= 0) {
         clearInterval(state.actions.coutDownTimerId);
         clearInterval(state.actions.timerId);
-        
+        alert("Game over! O seu resultado foi " + state.values.result);
+    } else {
+        state.values.currentTime--;
     }
-    state.values.currentTime--;
 }
 
 
@@ -53,7 +52,7 @@ function randomSquare() {
 function addListinerHitBox() {
     state.view.squares.forEach((square) => {
         square.addEventListener("mousedown", () => {
-            if (square.id === state.values.hitPosition && state.values.currentTime >=0) {
+            if (square.id === state.values.hitPosition && state.values.currentTime >= 0) {
                 state.values.result++;
                 state.view.score.textContent = state.values.result;
                 state.values.hitPosition = null;
@@ -63,6 +62,7 @@ function addListinerHitBox() {
 
     });
 }
+
 function initialize() {
     addListinerHitBox();
 }
