@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.menu{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 50rem;
+    height: 80px;
+
+    background-color: black;
+    color: white;
+
+}
+
+.panel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid red;
+}
+
+.square{
+    height: 150px;
+    border: 1px solid black;
+    width: 150px;
+    background-color: gray;
+}
+
+.enemy{
+    background-color: blue;
+}
